@@ -34,7 +34,7 @@ Verbinden Sie die Abhängigkeiten der einzelnen Projekte untereinander.
 |*double? Max(Func<T, double> transform)*|Liefert den Maximalwert der Auflistung.|
 |*double? Average(Func<T, double> transform)*|Liefert den Durchschnittswert der Auflistung.|
 |*IEnumerable&lt;T&gt; ForEach(Action&lt;T&gt; action)*|Führt für jedes Element der Auflistung die 'action' aus.|
-|*IEnumerable&lt;T&gt; ForEach(Action&lt;i, T&gt; action)*|Führt für jedes Element der Auflistung die 'action' aus.|
+|*IEnumerable&lt;T&gt; ForEach(Action&lt;int, T&gt; action)*|Führt für jedes Element der Auflistung die 'action' aus.|
  
 **Funktionsumfang für Experten (optional)** Erweitern Sie den Funktionsumfang für alle Sammlungen (IEnumerable&lt;T&gt;) um folgende Operationen:
  
