@@ -32,7 +32,7 @@ namespace MyLinq.Logic.UnitTest
             {
                 testName.CheckArgument(nameof(testName));
             }
-            catch (ArgumentNullException anex)
+            catch (ArgumentNullException anex) // (anex: argument null exception)
             {
                 Assert.AreEqual(expected, anex.Message);
             }

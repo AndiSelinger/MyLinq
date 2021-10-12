@@ -150,9 +150,10 @@ namespace MyLinq.Logic
             Array.Sort(result, new SortByComparer<T, TKey>(orderBy));
             return result;
         }
-        private class SortByComparer<T, TKey> : IComparer<T> where TKey : IComparable //T ist uneingeschränkt. TKey ist durch das "where IComparable" eingeschränkt.
+        private class SortByComparer<T, TKey> : IComparer<T> where TKey : IComparable 
+                    //T ist uneingeschränkt. TKey ist durch das "where TKey : IComparable" eingeschränkt.
         {
-            private Func<T, TKey> OrderBy { get; }
+            private Func<T, TKey> OrderBy { get; } //property
             public SortByComparer(Func<T, TKey> orderBy)
             {
                 orderBy.CheckArgument(nameof(orderBy));

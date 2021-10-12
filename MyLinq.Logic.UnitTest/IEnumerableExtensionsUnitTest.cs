@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MyLinq.Logic.UnitTest
@@ -52,8 +53,37 @@ namespace MyLinq.Logic.UnitTest
             double[] expected = new[] { -10.0, -9.0, -8.0, -7.0, -6.0, -5.0, -4.0, -3.0, -2.0, -1.0, 
                                         0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0 };
             var actual = source.Map(x => x * 1.0);
+            CollectionAssert.AreEqual(expected, actual.ToArray(), "Erwartetes Ergebnis nicht erfüllt!");
         }
-        //[TestMethod]
-        //public void ValidateMap_ListOf
+        [TestMethod]
+        public void ValidateMap_ListOfStringsFromMinus10To10_ExpectedListofIntNumbers()
+        {
+            string[] source = { "-10", "-9", "-8", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+            int[] expected = { -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var actual = source.Map(x => Convert.ToInt32(x));
+            CollectionAssert.AreEqual(expected, actual.ToArray(), "Erwartetes Ergebnis nicht erfüllt!");
+        }
+        [TestMethod]
+        public void ValidateToArray_ListofNameStrings_ExpectedArrayOfNameStrings()
+        {
+            string[] names = { "Helge", "Hofer", "Eva", "Mary", "Thomas", "Anton", "Dieter", "Rolf", "Horst" };
+            List<string> source = new List<string>();
+            source.AddRange(names);
+            string[] expected = { "Helge", "Hofer", "Eva", "Mary", "Thomas", "Anton", "Dieter", "Rolf", "Horst" };
+            var actual = source.ToArray();
+            CollectionAssert.AreEqual(expected, actual.ToArray(), "Erwartetes Ergebnis nicht erfüllt!");
+        }
+        [TestMethod]
+        public void ValidateToArray_HashSetOfIntNumbersFromMinus10To10_ExpectedArrayOfIntNumbersFromMinus10To10()
+        {
+            HashSet<int> source = new HashSet<int>();
+            for (int i = -10; i < 11; i++)
+            {
+                source.Add(i);
+            }
+            int[] expected = new[] { -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            int[] actual = source.ToArray();
+            CollectionAssert.AreEqual(expected, actual.ToArray(), "Erwartetes Ergebnis nicht erfüllt!");
+        }
     }
 }
