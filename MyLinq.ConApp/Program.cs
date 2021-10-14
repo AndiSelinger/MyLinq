@@ -25,7 +25,7 @@ namespace MyLinq.ConApp
                                       .ForEach(x => Console.WriteLine(x)); //double-Werte werden ausgegeben
             Console.WriteLine();
             string[] strArray = new string[] { "hallo", "maxi" };
-
+            
 
             double[] doubleArray2 = new[] { 7.1, 8.4, 3.0, 9, 5.1, 1.9, 16, 64, 53, 76, 11 };
             double? minimum = doubleArray2.Min(x => x * 1.0);
